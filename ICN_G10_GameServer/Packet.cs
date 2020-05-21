@@ -9,6 +9,7 @@ namespace ICN_G10_GameServer
     public enum ServerPackets
     {
         welcome = 1,
+        udpTest,
         spawnPlayer,
         playerPosition,
         playerRotation
@@ -18,6 +19,7 @@ namespace ICN_G10_GameServer
     public enum ClientPackets
     {
         welcomeReceived = 1,
+        udpTestReceived,
         playerMovement
     }
 

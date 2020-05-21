@@ -13,12 +13,14 @@ namespace ICN_G10_GameServer
         public int id;
         public Player player;
         public TCP tcp;
+        public UDP udp;
 
         // Constructor for client to init
         public Client(int _client_id)
         {
             id = _client_id;
             tcp = new TCP(id);
+            udp = new UDP(id);
         }
 
         public class TCP
@@ -48,7 +50,7 @@ namespace ICN_G10_GameServer
                 // Start read from the stream
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
-                ServerSend.Welcome(id, "Welcome to the Server for ICN2020 Group 10");
+                ServerSend.Welcome(id, "Welcome to the Server for ICN2020 Group 10 via TCP!");
             }
 
             public void SendData(Packet _packet)
@@ -147,6 +149,50 @@ namespace ICN_G10_GameServer
 
             }
         }
+
+        public class UDP
+        {
+            public IPEndPoint endPoint;
+
+            private int id;
+
+            public UDP(int _id)
+            {
+                id = _id;
+            }
+
+            public void Connect(IPEndPoint _endPoint)
+            {
+                endPoint = _endPoint;
+                ServerSend.UDPTest(id, "Welcome to the Server for ICN2020 Group 10 vis UDP!");
+            }
+
+            public void SendData(Packet _packet)
+            {
+                Server.SendUDPData(endPoint, _packet);
+            }
+
+            public void HandleData(Packet _packetData)
+            {
+                int _packetLength = _packetData.ReadInt();
+                byte[] _packetBytes = _packetData.ReadBytes(_packetLength);
+
+                ThreadManager.ExecuteOnMainThread(() =>
+                {
+                    using (Packet _packet = new Packet(_packetBytes))
+                    {
+                        int _packetId = _packet.ReadInt();
+                        Server.packetHandlers[_packetId](id, _packet);
+                    }
+                });
+            }
+
+            public void Disconnect()
+            {
+                endPoint = null;
+            }
+        }
+
 
         public void SendIntoGame(string _playername)
         {
