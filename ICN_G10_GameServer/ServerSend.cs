@@ -52,7 +52,7 @@ namespace ICN_G10_GameServer
                 _packet.Write(_player.position);
                 _packet.Write(_player.rotation);
 
-                SendTCPData(_toWhichClient, _player);
+                SendTCPData(_toWhichClient, _packet);
 
             }
         }

@@ -23,3 +23,4 @@ D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_Gam
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.dll
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.pdb
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.genruntimeconfig.cache
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.csproj.CoreCompileInputs.cache
