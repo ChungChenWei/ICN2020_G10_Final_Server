@@ -162,7 +162,6 @@ namespace ICN_G10_GameServer
         public class UDP
         {
             public IPEndPoint endPoint;
-
             private int id;
 
             public UDP(int _id)
@@ -235,6 +234,8 @@ namespace ICN_G10_GameServer
             player = null;
             tcp.Disconnect();
             udp.Disconnect();
+
+            ServerSend.PlayerDisconnected(id);
         }
     }
 }

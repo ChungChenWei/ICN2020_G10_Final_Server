@@ -15,7 +15,8 @@ namespace ICN_G10_GameServer
         udpTest,
         spawnPlayer,
         playerPosition,
-        playerRotation
+        playerRotation,
+        playerDisconnected
     }
 
     /// <summary>Sent from client to server.These are the packets' IDs.

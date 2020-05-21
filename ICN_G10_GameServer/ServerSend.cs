@@ -141,6 +141,15 @@ namespace ICN_G10_GameServer
                 SendUDPDataToAll(_player.id,_packet);
             }
         }
+        public static void PlayerDisconnected(int _playerID)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.playerDisconnected))
+            {
+                _packet.Write(_playerID);
+
+                SendTCPDataToAll(_packet);
+            }
+        }
         #endregion
     }
 }
