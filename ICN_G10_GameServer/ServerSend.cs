@@ -74,7 +74,6 @@ namespace ICN_G10_GameServer
                 }
             }
         }
-
         #endregion
 
         #region HandShake Method for TCP/UDP
@@ -103,10 +102,12 @@ namespace ICN_G10_GameServer
                 SendUDPData(_toWhichClient, _packet);
             }
         }
-
         #endregion
 
-        // Send Ggame information
+        #region Game Informations
+        /// <summary>Sending player information for certain Client to creat the player object via TCP.</summary>
+        /// <param name="_toWhichClient">The ID of the Client.</param>
+        /// <param name="_player">The player information.</param>
         public static void SpawnPlayer(int _toWhichClient, Player _player)
         {
             using(Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
@@ -140,5 +141,6 @@ namespace ICN_G10_GameServer
                 SendUDPDataToAll(_player.id,_packet);
             }
         }
+        #endregion
     }
 }

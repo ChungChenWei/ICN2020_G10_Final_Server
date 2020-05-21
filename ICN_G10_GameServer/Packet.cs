@@ -5,7 +5,10 @@ using System.Text;
 
 namespace ICN_G10_GameServer
 {
-    /// <summary>Sent from server to client.</summary>
+    /// Must match with Packet ID in Client. !!!!!!!!!!
+    #region Packet's IDs
+    /// <summary>Sent from server to client.These are the packets' IDs.
+    /// Make sure to match "Client.ClientDataInit()".</summary>
     public enum ServerPackets
     {
         welcome = 1,
@@ -15,7 +18,8 @@ namespace ICN_G10_GameServer
         playerRotation
     }
 
-    /// <summary>Sent from client to server.</summary>
+    /// <summary>Sent from client to server.These are the packets' IDs.
+    /// Make sure to match "ClientSend" class.</summary>
     public enum ClientPackets
     {
         welcomeReceived = 1,
@@ -23,11 +27,16 @@ namespace ICN_G10_GameServer
         playerMovement
     }
 
+    #endregion
+
     public class Packet : IDisposable
     {
         private List<byte> buffer;
         private byte[] readableBuffer;
         private int readPos;
+        private bool disposed = false;
+
+        #region Packet Constructor
 
         /// <summary>Creates a new empty packet (without an ID).</summary>
         public Packet()
@@ -55,6 +64,8 @@ namespace ICN_G10_GameServer
 
             SetBytes(_data);
         }
+
+        #endregion
 
         #region Functions
         /// <summary>Sets the packet's content and prepares it to be read.</summary>
@@ -368,8 +379,7 @@ namespace ICN_G10_GameServer
         }
         #endregion
 
-        private bool disposed = false;
-
+        #region Dispose
         protected virtual void Dispose(bool _disposing)
         {
             if (!disposed)
@@ -390,5 +400,6 @@ namespace ICN_G10_GameServer
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+        #endregion
     }
 }

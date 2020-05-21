@@ -8,6 +8,10 @@ namespace ICN_G10_GameServer
     class ServerHandle
     {
         #region Welcome Received using TCP/UDP
+        /// <summary>Check is the TCP connection is successfully and the ID is matched.
+        /// Then send the player into games.</summary>
+        /// <param name="_fromWhichClient">The Client ID.</param>
+        /// <param name="_packet">The TCP packet received.</param>
         public static void WelcomeReceivedTCP(int _fromWhichClient, Packet _packet)
         {
             int _clientIdCheck = _packet.ReadInt();

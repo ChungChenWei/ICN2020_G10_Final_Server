@@ -77,7 +77,7 @@ namespace ICN_G10_GameServer
                     int _recvLength = stream.EndRead(_result);
                     if(_recvLength <= 0)
                     {
-                        // TODO disconnect
+                        Server.clients[id].Disconnect();
                         return;
                     }
                     // Using another array to store data
@@ -93,7 +93,7 @@ namespace ICN_G10_GameServer
                 {
                     Console.WriteLine($"Error encounter when receive the data {_ex}");
 
-                    // TODO disconnect
+                    Server.clients[id].Disconnect();
                 }
             }
 
@@ -147,6 +147,15 @@ namespace ICN_G10_GameServer
 
                 return false;
 
+            }
+
+            public void Disconnect()
+            {
+                socket.Close();
+                stream = null;
+                receiveBuffer = null;
+                receivedData = null;
+                socket = null;
             }
         }
 
@@ -219,5 +228,13 @@ namespace ICN_G10_GameServer
             }
         }
 
+        private void Disconnect()
+        {
+            Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
+
+            player = null;
+            tcp.Disconnect();
+            udp.Disconnect();
+        }
     }
 }
