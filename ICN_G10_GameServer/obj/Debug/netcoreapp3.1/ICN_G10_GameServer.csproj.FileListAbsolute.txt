@@ -11,3 +11,15 @@ D:\大學課程\ICN\final\ICN2020_G10_Final\ICN_G10_GameServer\obj\Debug\netcore
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.dll
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.pdb
 D:\大學課程\ICN\final\ICN2020_G10_Final\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.genruntimeconfig.cache
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.csprojAssemblyReference.cache
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.AssemblyInfoInputs.cache
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.AssemblyInfo.cs
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.dll
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.pdb
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.exe
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.deps.json
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.runtimeconfig.json
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.runtimeconfig.dev.json
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.dll
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\bin\Debug\netcoreapp3.1\ICN_G10_GameServer.pdb
+D:\大學課程\ICN\final\ICN2020_G10_Final\ICN2020_G10_Final_Server\ICN_G10_GameServer\obj\Debug\netcoreapp3.1\ICN_G10_GameServer.genruntimeconfig.cache

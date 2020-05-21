@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "75A3pDmGpO56tr/U1KnqqlgWaOvEsaIPAO6oUjP6XYbFkAzDkWIPxSbObph1JjDx2JqjGscX52iwC5aFKJ6b+Q==",
+  "dgSpecHash": "cogxHZ+y7r6cyp6hnrDXtlRrgWNiOF1Yoo0dLXVdXXFfUoj95US8IFTgk3TZpcUsEC9P1crMreexDA45fSDnkQ==",
   "success": true,
-  "projectFilePath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
+  "projectFilePath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
   "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\ab121\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []

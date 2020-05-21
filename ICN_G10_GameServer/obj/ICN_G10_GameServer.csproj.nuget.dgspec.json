@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj": {}
+    "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj": {}
   },
   "projects": {
-    "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj": {
+    "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
+        "projectUniqueName": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
         "projectName": "ICN_G10_GameServer",
-        "projectPath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
+        "projectPath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\ICN_G10_GameServer.csproj",
         "packagesPath": "C:\\Users\\ab121\\.nuget\\packages\\",
-        "outputPath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN_G10_GameServer\\obj\\",
+        "outputPath": "D:\\大學課程\\ICN\\final\\ICN2020_G10_Final\\ICN2020_G10_Final_Server\\ICN_G10_GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

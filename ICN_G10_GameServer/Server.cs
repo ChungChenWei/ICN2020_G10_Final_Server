@@ -11,6 +11,10 @@ namespace ICN_G10_GameServer
         public static int MaxPlayers { get; private set; }
         public static int Port { get; private set; }
         public static Dictionary<int, Client> clients = new Dictionary<int, Client>();
+
+        public delegate void PackerHandler(int _fromWhichClient, Packet _packet);
+        public static Dictionary<int, PackerHandler> packetHandlers;
+
         private static TcpListener tcpListener;
 
         // Server Main Start
@@ -63,6 +67,12 @@ namespace ICN_G10_GameServer
             {
                 clients.Add(i, new Client(i));
             }
+
+            packetHandlers = new Dictionary<int, PackerHandler>()
+            {
+                { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived}
+            };
+            Console.WriteLine("Packet Handler Init");
         }
     }
 }

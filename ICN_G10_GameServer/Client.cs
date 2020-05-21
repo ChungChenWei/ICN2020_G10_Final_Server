@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Numerics;
 
 namespace ICN_G10_GameServer
 {
@@ -10,6 +11,7 @@ namespace ICN_G10_GameServer
     {
         public static int dataBufferSize = 4096;
         public int id;
+        public Player player;
         public TCP tcp;
 
         // Constructor for client to init
@@ -23,6 +25,7 @@ namespace ICN_G10_GameServer
         {
             public TcpClient socket;
             private readonly int id;
+            private Packet receivedData;
             private NetworkStream stream;
             private byte[] receiveBuffer;
 
@@ -40,6 +43,7 @@ namespace ICN_G10_GameServer
                 socket.SendBufferSize = dataBufferSize;
                 // Init the stream and reveive buffer
                 stream = socket.GetStream();
+                receivedData = new Packet();
                 receiveBuffer = new byte[dataBufferSize];
                 // Start read from the stream
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
@@ -78,7 +82,7 @@ namespace ICN_G10_GameServer
                     byte[] _data = new byte[_recvLength];
                     Array.Copy(receiveBuffer, _data, _recvLength);
 
-                    // TODO handle data
+                    receivedData.Reset(HandleData(_data));
 
                     // Continue to read new data
                     stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
@@ -90,6 +94,84 @@ namespace ICN_G10_GameServer
                     // TODO disconnect
                 }
             }
+
+            private bool HandleData(byte[] _data)
+            {
+                int _packetLength = 0;
+                receivedData.SetBytes(_data);
+                // The begining of a packet is the length(int) thus
+                // there will be at least 4 bytes to start
+                if (receivedData.UnreadLength() >= 4)
+                {
+                    // Reads in the packet length
+                    _packetLength = receivedData.ReadInt();
+                    if (_packetLength <= 0)
+                    {
+                        // Need to Reset receive packet
+                        return true;
+                    }
+                }
+
+                // if unread length >= packet length means that there will be a complete packet
+                while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
+                {
+                    byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
+                    ThreadManager.ExecuteOnMainThread(() =>
+                    {
+                        using (Packet _packet = new Packet(_packetBytes))
+                        {
+                            int _packetid = _packet.ReadInt();
+                            Server.packetHandlers[_packetid](id, _packet);
+                        }
+                    });
+
+                    _packetLength = 0;
+                    if (receivedData.UnreadLength() >= 4)
+                    {
+                        // Reads in the packet length
+                        _packetLength = receivedData.ReadInt();
+                        if (_packetLength <= 0)
+                        {
+                            // Need to Reset receive packet
+                            return true;
+                        }
+                    }
+                }
+
+                if (_packetLength <= 1)
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
         }
+
+        public void SendIntoGame(string _playername)
+        {
+            player = new Player(id, _playername, new Vector3(0, 0, 0));
+
+            // Send all the other players information to the new player
+            foreach (Client _client in Server.clients.Values)
+            {
+                if(_client.player != null)
+                {
+                    if(_client.id != id)
+                    {
+                        ServerSend.SpawnPlayer(id, _client.player);
+                    }
+                }
+            }
+            // Send the new player's information to everyone
+            foreach (Client _client in Server.clients.Values)
+            {
+                if (_client.player != null)
+                {
+                    ServerSend.SpawnPlayer(_client.id, player);
+                }
+            }
+        }
+
     }
 }

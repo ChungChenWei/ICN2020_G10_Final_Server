@@ -42,5 +42,19 @@ namespace ICN_G10_GameServer
                 SendTCPData(_toWhichClient,_packet);
             }
         }
+
+        public static void SpawnPlayer(int _toWhichClient, Player _player)
+        {
+            using(Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
+            {
+                _packet.Write(_player.id);
+                _packet.Write(_player.username);
+                _packet.Write(_player.position);
+                _packet.Write(_player.rotation);
+
+                SendTCPData(_toWhichClient, _player);
+
+            }
+        }
     }
 }
