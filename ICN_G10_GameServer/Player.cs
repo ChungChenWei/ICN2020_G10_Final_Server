@@ -47,7 +47,10 @@ namespace ICN_G10_GameServer
                 _inputDirection.X -= 1;
             }
 
-            Move(_inputDirection);
+            if(_inputDirection.Length() > 0)
+            {
+                Move(_inputDirection);
+            }
         }
 
         private void Move(Vector2 _inputDirection)

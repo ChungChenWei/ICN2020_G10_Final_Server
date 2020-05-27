@@ -213,6 +213,7 @@ namespace ICN_G10_GameServer
                 {
                     if(_client.id != id)
                     {
+                        Console.WriteLine($"Sending {_client.player.id} information to player {id} via TCP");
                         ServerSend.SpawnPlayer(id, _client.player);
                     }
                 }
@@ -229,7 +230,7 @@ namespace ICN_G10_GameServer
 
         private void Disconnect()
         {
-            Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
+            Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} (Player {id}) has disconnected.");
 
             player = null;
             tcp.Disconnect();

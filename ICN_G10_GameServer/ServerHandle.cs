@@ -45,6 +45,8 @@ namespace ICN_G10_GameServer
             }
             Quaternion _rotation = _packet.ReadQuaternion();
 
+            //Console.WriteLine($"{_fromWhichClient} Send us an update msg");
+
             Server.clients[_fromWhichClient].player.SetInput(_inputs, _rotation);
         }
     }
