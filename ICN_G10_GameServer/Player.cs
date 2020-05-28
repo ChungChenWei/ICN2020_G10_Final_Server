@@ -55,11 +55,12 @@ namespace ICN_G10_GameServer
 
         private void Move(Vector2 _inputDirection)
         {
-            // Direction Player is facing
-            Vector3 _forward = Vector3.Transform(new Vector3(0, 0, 1), rotation);
-            Vector3 _right = Vector3.Normalize(Vector3.Cross(_forward, new Vector3(0, 1, 0)));
+            //// Direction Player is facing
+            //Vector3 _forward = Vector3.Transform(new Vector3(0, 0, 1), rotation);
+            //Vector3 _right = Vector3.Normalize(Vector3.Cross(_forward, new Vector3(0, 1, 0)));
 
-            Vector3 _moveDirection = _right * _inputDirection.X + _forward * _inputDirection.Y;
+            //Vector3 _moveDirection = _right * _inputDirection.X + _forward * _inputDirection.Y;
+            Vector3 _moveDirection = new Vector3(-_inputDirection.X, _inputDirection.Y, 0);
 
             position += _moveDirection * moveSpeed;
 
